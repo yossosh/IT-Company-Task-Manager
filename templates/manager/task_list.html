@@ -8,11 +8,8 @@
       <tr>
         <th>ID</th>
         <th>Name</th>
-        <th>Description</th>
         <th>Deadline</th>
         <th>Priority</th>
-        <th>Task Type</th>
-        <th>Assignees</th>
         <th>Completed</th>
       </tr>
     </thead>
@@ -21,11 +18,8 @@
       <tr>
         <td><a href="{% url 'manager:task-detail' task.id %}">{{ task.id }}</a></td>
         <td>{{ task.name }}</td>
-        <td>{{ task.description }}</td>
         <td>{{ task.deadline }}</td>
         <td>{{ task.priority }}</td>
-        <td>{{ task.task_type.name }}</td>
-        <td>{{ task.assignees.all|join:", " }}</td>
         <td>{{ task.is_completed }}</td>
       </tr>
     {% endfor %}
