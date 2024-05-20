@@ -39,11 +39,13 @@ class Worker(AbstractUser):
     Extends the AbstractUser model to include a foreign key to Position.
     """
 
+    default_position = Position.objects.get_or_create(name="Default Position")[0].id
     position = models.ForeignKey(
         Position,
         on_delete=models.CASCADE,
         verbose_name="Position",
         related_name="workers",
+        default=default_position
     )
 
     class Meta:
