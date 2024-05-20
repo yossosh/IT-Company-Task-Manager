@@ -7,6 +7,9 @@ from manager.models import Position, TaskType, Worker, Task
 def home(request):
     """View function for the home page of the site."""
 
+    num_visits = request.session.get("num_visits", 0)
+    request.session["num_visits"] = num_visits + 1
+
     return render(
         request,
         "manager/home.html",
@@ -15,6 +18,7 @@ def home(request):
             "num_positions": Position.objects.count(),
             "num_tasks": Task.objects.count(),
             "num_task_types": TaskType.objects.count(),
+            "num_visits": num_visits,
         },
     )
 
