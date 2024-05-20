@@ -39,4 +39,6 @@
     </tr>
   </table>
   <a href="{% url 'manager:worker-list' %}" class="btn btn-primary">Back to Worker List</a>
+  <a href="{% url 'manager:worker-delete' worker.id %}" class="btn btn-danger">Delete</a>
+  <a href="{% url 'manager:worker-list' %}" class="btn btn-primary">Back to Worker List</a>
 {% endblock %}

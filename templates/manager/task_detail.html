@@ -37,4 +37,6 @@
     </tr>
   </table>
   <a href="{% url 'manager:task-list' %}" class="btn btn-primary">Back to Task List</a>
+  <a href="{% url 'manager:task-delete' task.id %}" class="btn btn-danger">Delete</a>
+  <a href="{% url 'manager:task-list' %}" class="btn btn-primary">Back to Task List</a>
 {% endblock %}

@@ -1,13 +1,15 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Position List</h1>
+  <h1>Position List <a href="{% url 'manager:position-create' %}" class="btn btn-primary">+</a></h1>
   {% if positions %}
   <table class="table">
     <thead>
       <tr>
         <th>ID</th>
         <th>Name</th>
+        <th>Update</th>
+        <th>Delete</th>
       </tr>
     </thead>
     <tbody>
@@ -15,6 +17,8 @@
       <tr>
         <td>{{ position.id }}</td>
         <td>{{ position.name }}</td>
+        <td><a href="{% url 'manager:position-update' position.id %}" class="btn btn-secondary">Update</a></td>
+        <td><a href="{% url 'manager:position-delete' position.id %}" class="btn btn-danger">Delete</a></td>
       </tr>
     {% endfor %}
     </tbody>
