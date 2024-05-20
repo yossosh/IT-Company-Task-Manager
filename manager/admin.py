@@ -22,6 +22,7 @@ class WorkerAdmin(admin.ModelAdmin):
     search_fields = ("username", "first_name", "last_name", "email", "position__name")
     list_filter = ("position",)
     ordering = ("username",)
+    list_select_related = ("position",)
 
 
 @admin.register(Task)
@@ -31,3 +32,4 @@ class TaskAdmin(admin.ModelAdmin):
     list_filter = ("is_completed", "priority", "task_type")
     ordering = ("deadline", "priority")
     filter_horizontal = ("assignees",)
+    date_hierarchy = "deadline"
