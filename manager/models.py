@@ -45,7 +45,7 @@ class Worker(AbstractUser):
         on_delete=models.CASCADE,
         verbose_name="Position",
         related_name="workers",
-        default=default_position
+        default=default_position,
     )
 
     class Meta:
@@ -73,9 +73,7 @@ class Task(models.Model):
     name = models.CharField(max_length=255, verbose_name="Task Name")
     description = models.TextField(verbose_name="Task Description")
     deadline = models.DateField(verbose_name="Deadline")
-    is_completed = models.BooleanField(
-        default=False, verbose_name="Is Completed"
-    )
+    is_completed = models.BooleanField(default=False, verbose_name="Is Completed")
     priority = models.CharField(
         max_length=255, choices=PRIORITY_CHOICES, verbose_name="Priority"
     )
