@@ -1,4 +1,10 @@
 <ul class="sidebar-menu">
+  {% if user.is_authenticated %}
+    <li><a href="{% url 'manager:worker-detail' user.id %}">{{ user.username }}</a></li>
+    <li><a href="{% url 'logout' %}">Logout</a></li>
+  {% else %}
+    <li><a href="{% url 'login' %}">Login</a></li>
+  {% endif %}
   <li><a href="{% url 'manager:position-list' %}">Positions</a></li>
   <li><a href="{% url 'manager:task-type-list' %}">Task Types</a></li>
   <li><a href="{% url 'manager:worker-list' %}">Workers</a></li>

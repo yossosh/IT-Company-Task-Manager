@@ -1,9 +1,11 @@
 from django.views import generic
 from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
 
 from manager.models import Position, TaskType, Worker, Task
 
 
+@login_required
 def home(request):
     """View function for the home page of the site."""
 
