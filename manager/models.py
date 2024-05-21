@@ -1,4 +1,6 @@
 from django.db import models
+from django.core.exceptions import ValidationError
+from django.utils import timezone
 from django.contrib.auth.models import AbstractUser
 
 
@@ -114,3 +116,8 @@ class Task(models.Model):
 
     def __str__(self):
         return self.name
+
+    def clean(self):
+        # Ensure the deadline is not in the past
+        if self.deadline < timezone.now().date():
+            raise ValidationError('The deadline cannot be in the past.')
