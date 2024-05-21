@@ -4,7 +4,7 @@ from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 
-from manager.models import Position, TaskType, Worker, Task
+from manager.models import Position, TaskType, Tag, Worker, Task
 
 
 @login_required
@@ -81,6 +81,33 @@ class TaskTypeDeleteView(LoginRequiredMixin, generic.DeleteView):
     success_url = reverse_lazy("manager:tasktype-list")
 
 
+class TagListView(LoginRequiredMixin, generic.ListView):
+    model = Tag
+    queryset = Tag.objects.order_by("id")
+    paginate_by = 5
+    context_object_name = "tags"
+
+
+class TagCreateView(LoginRequiredMixin, generic.CreateView):
+    model = Tag
+    fields = "__all__"
+    success_url = reverse_lazy("manager:tag-list")
+    template_name = "manager/tag_form.html"
+
+
+class TagUpdateView(LoginRequiredMixin, generic.UpdateView):
+    model = Tag
+    fields = "__all__"
+    success_url = reverse_lazy("manager:tag-list")
+    template_name = "manager/tag_form.html"
+
+
+class TagDeleteView(LoginRequiredMixin, generic.DeleteView):
+    model = Tag
+    template_name = "manager/tag_confirm_delete.html"
+    success_url = reverse_lazy("manager:tag-list")
+
+
 class WorkerListView(LoginRequiredMixin, generic.ListView):
     model = Worker
     queryset = Worker.objects.order_by("id", "position")
@@ -96,7 +123,9 @@ class WorkerDetailView(LoginRequiredMixin, generic.DetailView):
         context = super().get_context_data(**kwargs)
         worker = self.get_object()
         context["completed_tasks"] = worker.tasks.filter(is_completed=True)
-        context["not_completed_tasks"] = worker.tasks.filter(is_completed=False)
+        context["not_completed_tasks"] = worker.tasks.filter(
+            is_completed=False
+        )
         return context
 
 

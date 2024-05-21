@@ -121,4 +121,4 @@ class Task(models.Model):
     def clean(self):
         # Ensure the deadline is not in the past
         if self.deadline < timezone.now().date():
-            raise ValidationError('The deadline cannot be in the past.')
+            raise ValidationError("The deadline cannot be in the past.")

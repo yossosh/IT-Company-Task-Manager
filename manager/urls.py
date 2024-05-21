@@ -8,6 +8,10 @@ from manager.views import (
     WorkerDetailView,
     TaskListView,
     TaskDetailView,
+    TagListView,
+    TagCreateView,
+    TagUpdateView,
+    TagDeleteView,
     PositionCreateView,
     PositionDeleteView,
     PositionUpdateView,
@@ -42,11 +46,16 @@ urlpatterns = [
         PositionDeleteView.as_view(),
         name="position-delete",
     ),
+    path("tags/", TagListView.as_view(), name="tag-list"),
+    path("tags/create/", TagCreateView.as_view(), name="tag-create"),
+    path("tags/<int:pk>/update/", TagUpdateView.as_view(), name="tag-update"),
+    path("tags/<int:pk>/delete/", TagDeleteView.as_view(), name="tag-delete"),
     path("task_types/", TaskTypeListView.as_view(), name="task-type-list"),
     path(
         "task_type/create/",
         TaskTypeCreateView.as_view(),
-        name="task-type-create"),
+        name="task-type-create"
+    ),
     path(
         "task_type/<int:pk>/update/",
         TaskTypeUpdateView.as_view(),
@@ -63,7 +72,8 @@ urlpatterns = [
     path(
         "worker/<int:pk>/update/",
         WorkerUpdateView.as_view(),
-        name="worker-update"),
+        name="worker-update"
+    ),
     path(
         "worker/<int:pk>/delete/",
         WorkerDeleteView.as_view(),
@@ -80,6 +90,5 @@ urlpatterns = [
     path(
         "task/<int:pk>/delete/",
         TaskDeleteView.as_view(),
-        name="task-delete"
-    ),
+        name="task-delete"),
 ]
