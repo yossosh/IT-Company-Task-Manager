@@ -34,6 +34,22 @@ class TaskType(models.Model):
         return self.name
 
 
+class Tag(models.Model):
+    """
+    Represents a tag that can be used to categorize and filter tasks.
+    """
+
+    name = models.CharField(max_length=255, verbose_name="Tag Name")
+
+    class Meta:
+        ordering = ["name"]
+        verbose_name = "Tag"
+        verbose_name_plural = "Tags"
+
+    def __str__(self):
+        return self.name
+
+
 class Worker(AbstractUser):
     """
     Extends the AbstractUser model to include a foreign key to Position.
