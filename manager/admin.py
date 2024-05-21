@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Position, TaskType, Worker, Task
+from .models import Position, TaskType, Tag, Worker, Task
 
 
 @admin.register(Position)
@@ -11,6 +11,13 @@ class PositionAdmin(admin.ModelAdmin):
 
 @admin.register(TaskType)
 class TaskTypeAdmin(admin.ModelAdmin):
+    list_display = ("name",)
+    search_fields = ("name",)
+    ordering = ("name",)
+
+
+@admin.register(Tag)
+class TagAdmin(admin.ModelAdmin):
     list_display = ("name",)
     search_fields = ("name",)
     ordering = ("name",)

@@ -35,6 +35,10 @@
       <th>Completed</th>
       <td>{{ task.is_completed }}</td>
     </tr>
+    <tr>
+      <th>Tags</th>
+      <td>{{ task.tags.all|join:", " }}</td>
+    </tr>
   </table>
   <div class="mt-4">
     <a href="{% url 'manager:task-list' %}" class="btn btn-primary"><i class="fas fa-arrow-left"></i></a>
