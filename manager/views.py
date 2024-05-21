@@ -92,6 +92,13 @@ class WorkerDetailView(LoginRequiredMixin, generic.DetailView):
     model = Worker
     context_object_name = "worker"
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        worker = self.get_object()
+        context["completed_tasks"] = worker.tasks.filter(is_completed=True)
+        context["not_completed_tasks"] = worker.tasks.filter(is_completed=False)
+        return context
+
 
 class WorkerCreateView(LoginRequiredMixin, generic.CreateView):
     model = Worker
@@ -111,18 +118,6 @@ class WorkerDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Worker
     template_name = "manager/worker_confirm_delete.html"
     success_url = reverse_lazy("manager:worker-list")
-
-
-class Worker(LoginRequiredMixin, generic.DetailView):
-    model = Worker
-    context_object_name = "worker"
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        worker = self.get_object()
-        context["completed_tasks"] = worker.tasks.filter(is_completed=True)
-        context["not_completed_tasks"] = worker.tasks.filter(is_completed=False)
-        return context
 
 
 class TaskListView(LoginRequiredMixin, generic.ListView):
