@@ -108,6 +108,7 @@ class Task(models.Model):
     assignees = models.ManyToManyField(
         Worker, verbose_name="Assignees", related_name="tasks"
     )
+    tags = models.ManyToManyField(Tag, blank=True)
 
     class Meta:
         ordering = ["deadline", "priority"]
