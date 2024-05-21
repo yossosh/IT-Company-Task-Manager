@@ -36,7 +36,9 @@
       <td>{{ task.is_completed }}</td>
     </tr>
   </table>
-  <a href="{% url 'manager:task-list' %}" class="btn btn-primary"><i class="fas fa-arrow-left"></i></a>
-  <a href="{% url 'manager:task-update' task.id %}" class="btn btn-secondary">Update</a>
-  <a href="{% url 'manager:task-delete' task.id %}" class="btn btn-danger">Delete</a>
+  <div class="mt-4">
+    <a href="{% url 'manager:task-list' %}" class="btn btn-primary"><i class="fas fa-arrow-left"></i></a>
+    <a href="{% url 'manager:task-update' task.id %}" class="btn btn-secondary">Update</a>
+    <a href="{% url 'manager:task-delete' task.id %}" class="btn btn-danger">Delete</a>
+  </div>
 {% endblock %}

@@ -64,7 +64,9 @@
       {% endif %}
     </div>
   </div>
+  <div class="mt-4">
     <a href="{% url 'manager:worker-list' %}" class="btn btn-primary"><i class="fas fa-arrow-left"></i></a>
     <a href="{% url 'manager:worker-update' worker.id %}" class="btn btn-secondary">Update</a>
     <a href="{% url 'manager:worker-delete' worker.id %}" class="btn btn-danger">Delete</a>
+  </div>
 {% endblock %}
