@@ -57,9 +57,7 @@ class Worker(AbstractUser):
     Extends the AbstractUser model to include a foreign key to Position.
     """
 
-    default_position = Position.objects.get_or_create(
-        name="Default Position"
-    )[0].id
+    default_position = Position.objects.get_or_create(name="Default Position")[0].id
     position = models.ForeignKey(
         Position,
         on_delete=models.CASCADE,
@@ -93,9 +91,7 @@ class Task(models.Model):
     name = models.CharField(max_length=255, verbose_name="Task Name")
     description = models.TextField(verbose_name="Task Description")
     deadline = models.DateField(verbose_name="Deadline")
-    is_completed = models.BooleanField(
-        default=False, verbose_name="Is Completed"
-    )
+    is_completed = models.BooleanField(default=False, verbose_name="Is Completed")
     priority = models.CharField(
         max_length=255, choices=PRIORITY_CHOICES, verbose_name="Priority"
     )

@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Tasks for This Week</h1>
+  <ul>
+    {% for task in tasks %}
+      <li>{{ task.name }} - {{ task.deadline }}</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

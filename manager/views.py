@@ -1,6 +1,7 @@
 from django.urls import reverse_lazy
 from django.views import generic
 from django.shortcuts import render
+from django.utils import timezone
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 
@@ -123,9 +124,7 @@ class WorkerDetailView(LoginRequiredMixin, generic.DetailView):
         context = super().get_context_data(**kwargs)
         worker = self.get_object()
         context["completed_tasks"] = worker.tasks.filter(is_completed=True)
-        context["not_completed_tasks"] = worker.tasks.filter(
-            is_completed=False
-        )
+        context["not_completed_tasks"] = worker.tasks.filter(is_completed=False)
         return context
 
 
@@ -179,3 +178,32 @@ class TaskDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Task
     template_name = "manager/task_confirm_delete.html"
     success_url = reverse_lazy("manager:task-list")
+
+
+class TasksThisWeekView(LoginRequiredMixin, generic.ListView):
+    model = Task
+    template_name = "manager/tasks_this_week.html"
+    context_object_name = "tasks"
+
+    def get_queryset(self):
+        today = timezone.now().date()
+        start_of_week = today - timezone.timedelta(days=today.weekday())
+        end_of_week = start_of_week + timezone.timedelta(days=6)
+        return Task.objects.filter(deadline__range=[start_of_week, end_of_week])
+
+
+class SearchTasksByTagsView(LoginRequiredMixin, generic.ListView):
+    model = Task
+    template_name = "manager/search_tasks_by_tags.html"
+    context_object_name = "tasks"
+
+    def get_queryset(self):
+        tags = self.request.GET.getlist("tags")
+        if tags:
+            return Task.objects.filter(tags__name__in=tags).distinct()
+        return Task.objects.none()
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["tags"] = Tag.objects.all()
+        return context

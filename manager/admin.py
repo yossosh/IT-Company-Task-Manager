@@ -26,9 +26,7 @@ class TagAdmin(admin.ModelAdmin):
 @admin.register(Worker)
 class WorkerAdmin(admin.ModelAdmin):
     list_display = ("username", "first_name", "last_name", "email", "position")
-    search_fields = (
-        "username", "first_name", "last_name", "email", "position__name"
-    )
+    search_fields = ("username", "first_name", "last_name", "email", "position__name")
     list_filter = ("position",)
     ordering = ("username",)
     list_select_related = ("position",)
@@ -36,12 +34,8 @@ class WorkerAdmin(admin.ModelAdmin):
 
 @admin.register(Task)
 class TaskAdmin(admin.ModelAdmin):
-    list_display = (
-        "name", "deadline", "is_completed", "priority", "task_type"
-    )
-    search_fields = (
-        "name", "description", "task_type__name", "assignees__username"
-    )
+    list_display = ("name", "deadline", "is_completed", "priority", "task_type")
+    search_fields = ("name", "description", "task_type__name", "assignees__username")
     list_filter = ("is_completed", "priority", "task_type")
     ordering = ("deadline", "priority")
     filter_horizontal = ("assignees",)

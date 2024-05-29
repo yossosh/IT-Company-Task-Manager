@@ -1,13 +1,34 @@
-<ul class="sidebar-menu">
-  {% if user.is_authenticated %}
-    <li><a href="{% url 'manager:worker-detail' user.id %}">{{ user.username }}</a></li>
-    <li><a href="{% url 'logout' %}">Logout</a></li>
-  {% else %}
-    <li><a href="{% url 'login' %}">Login</a></li>
-  {% endif %}
-  <li><a href="{% url 'manager:position-list' %}">Positions</a></li>
-  <li><a href="{% url 'manager:task-type-list' %}">Task Types</a></li>
-  <li><a href="{% url 'manager:tag-list' %}">Tags</a></li>
-  <li><a href="{% url 'manager:worker-list' %}">Workers</a></li>
-  <li><a href="{% url 'manager:task-list' %}">Tasks</a></li>
-</ul>
+<aside id="sidebar" class="sidebar">
+  <div class="sidebar-sticky">
+    <ul class="nav flex-column">
+      {% if user.is_authenticated %}
+        <li class="nav-item">
+          <a class="nav-link active" href="{% url 'manager:worker-detail' user.id %}">
+            <i class="fa fa-user"></i> {{ user.username }}
+          </a>
+        </li>
+      {% else %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'login' %}">
+            <i class="fa fa-sign-in-alt"></i> Login
+          </a>
+        </li>
+      {% endif %}
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'manager:task-create' %}">
+          <i class="fa fa-plus-circle"></i> Add Task
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'manager:tasks-this-week' %}">
+          <i class="fa fa-calendar"></i> Tasks for this Week
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'manager:search-tasks-by-tags' %}">
+          <i class="fa fa-search"></i> Search Tasks by Tags
+        </a>
+      </li>
+    </ul>
+  </div>
+</aside>
