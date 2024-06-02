@@ -1,12 +1,9 @@
 from django.test import TestCase, Client
 from django.urls import reverse
-from django.contrib.auth import get_user_model
 from manager.models import Position, TaskType, Tag, Worker, Task
-from django.utils import timezone
 
 
 class ViewsTests(TestCase):
-
     def setUp(self):
         self.client = Client()
         self.position = Position.objects.create(name="Developer")
@@ -65,7 +62,9 @@ class ViewsTests(TestCase):
 
     def test_task_detail_view(self):
         self.client.login(username="worker", password="password")
-        response = self.client.get(reverse("manager:task-detail", args=[self.task.id]))
+        response = self.client.get(reverse(
+            "manager:task-detail", args=[self.task.id]
+        ))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "manager/task_detail.html")
 

@@ -124,7 +124,9 @@ class WorkerDetailView(LoginRequiredMixin, generic.DetailView):
         context = super().get_context_data(**kwargs)
         worker = self.get_object()
         context["completed_tasks"] = worker.tasks.filter(is_completed=True)
-        context["not_completed_tasks"] = worker.tasks.filter(is_completed=False)
+        context["not_completed_tasks"] = worker.tasks.filter(
+            is_completed=False
+        )
         return context
 
 
@@ -189,7 +191,9 @@ class TasksThisWeekView(LoginRequiredMixin, generic.ListView):
         today = timezone.now().date()
         start_of_week = today - timezone.timedelta(days=today.weekday())
         end_of_week = start_of_week + timezone.timedelta(days=6)
-        return Task.objects.filter(deadline__range=[start_of_week, end_of_week])
+        return Task.objects.filter(
+            deadline__range=[start_of_week, end_of_week]
+        )
 
 
 class SearchTasksByTagsView(LoginRequiredMixin, generic.ListView):

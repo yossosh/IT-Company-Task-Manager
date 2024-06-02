@@ -1,6 +1,10 @@
 from django.contrib.admin.sites import AdminSite
 from django.test import TestCase
-from manager.admin import PositionAdmin, TaskTypeAdmin, TagAdmin, WorkerAdmin, TaskAdmin
+from manager.admin import (PositionAdmin,
+                           TaskTypeAdmin,
+                           TagAdmin,
+                           WorkerAdmin,
+                           TaskAdmin)
 from manager.models import Position, TaskType, Tag, Worker, Task
 
 
@@ -37,8 +41,10 @@ class AdminTests(TestCase):
 
     def test_worker_admin(self):
         ma = WorkerAdmin(Worker, self.site)
-        self.assertEqual(list(ma.list_display), ["username", "position"])
+        self.assertEqual(list(ma.list_display),
+                         ["username", "position"])
 
     def test_task_admin(self):
         ma = TaskAdmin(Task, self.site)
-        self.assertEqual(list(ma.list_display), ["name", "priority", "task_type"])
+        self.assertEqual(list(ma.list_display),
+                         ["name", "priority", "task_type"])
