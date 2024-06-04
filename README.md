@@ -28,7 +28,7 @@ Positions: It is possible to create employees by giving them a position. Also, c
 
 ## Getting Started
 
-# Prerequisites
+# 1.Prerequisites
 Make sure you have the following installed on your machine:
 
 Python 3.x
@@ -43,7 +43,7 @@ To get started with our Task Manager, create your own fork and run code like thi
 
 
 
-## Installation
+# 2.Installation
 
 Create and activate a virtual environment:
     
@@ -108,3 +108,28 @@ The project structure is as follows:
     ├── db.sqlite3
     ├── manage.py
     ├── README.md
+
+
+
+
+## Models Structure
+
+![image](https://github.com/yossosh/IT-Company-Task-Manager/assets/160421955/0df65b64-1af5-47de-ae63-4a470a104739)
+
+
+
+
+## Screenshots
+![image](https://github.com/yossosh/IT-Company-Task-Manager/assets/160421955/055032b2-8861-4232-b623-59df823a010c)
+![image](https://github.com/yossosh/IT-Company-Task-Manager/assets/160421955/dee2e3f6-699b-45c6-abd5-cc539afdaea0)
+![image](https://github.com/yossosh/IT-Company-Task-Manager/assets/160421955/d3b2ad38-25e0-48dd-8504-3ef3211791be)
+![image](https://github.com/yossosh/IT-Company-Task-Manager/assets/160421955/73b21558-3da7-4ce5-b58c-ad6be170f571)
+![image](https://github.com/yossosh/IT-Company-Task-Manager/assets/160421955/2017fe04-e91e-4508-9251-7d2869f15c7d)
+![image](https://github.com/yossosh/IT-Company-Task-Manager/assets/160421955/40a056f9-9b07-4ffe-8c78-753b965b01a2)
+![image](https://github.com/yossosh/IT-Company-Task-Manager/assets/160421955/48ef7e5e-5758-4e4e-b0d9-53c62303061c)
+![image](https://github.com/yossosh/IT-Company-Task-Manager/assets/160421955/4f187fb7-1a3a-4285-99cf-accb8a8f3c2f)
+![image](https://github.com/yossosh/IT-Company-Task-Manager/assets/160421955/3c6566d1-85a1-4e81-bf93-a2abf8a3151c)
+![image](https://github.com/yossosh/IT-Company-Task-Manager/assets/160421955/1018ca35-f1e8-4dba-ada0-d559a76543a7)
+
+
+
