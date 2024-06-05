@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {% load static %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>{% block title %}Task Manager{% endblock %}</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+    }
+    .main-content {
+      flex: 1 0 auto;
+      position: relative;
+    }
+    .footer {
+      flex-shrink: 0;
+      background: rgba(255, 255, 255, 0.8);
+      text-align: center;
+      padding: 1rem 0;
+    }
+    .bg-gray-200 {
+      background-color: #f8f9fa;
+    }
+    .page-header {
+      position: relative;
+      height: 75vh;
+      min-height: 75vh;
+      background-size: cover;
+      background-position: center;
+      background-image: url('{% static "img/bg2.img" %}');
+      margin-bottom: 0;
+    }
+    .header-mask {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+    }
+    .header-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      color: #fff;
+      padding-top: 100px;
+    }
+    .header-content h1 {
+      font-size: 3rem;
+      font-weight: 700;
+    }
+    .header-content p {
+      font-size: 1.25rem;
+    }
+    .no-padding {
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+    }
+    .pagination {
+      justify-content: center;
+      padding: 1rem 0;
+    }
+  </style>
+</head>
+
+<body class="index-page bg-gray-200">
+  {% include "includes/header.html" %}
+  <main class="main-content">
+    <div class="page-header">
+      <div class="header-mask bg-gradient-primary opacity-4"></div>
+      <div class="container header-content">
+        <div class="row">
+          <div class="col-lg-7 mx-auto">
+            <h1 class="pt-3 mt-5">Task Manager</h1>
+            <p class="lead mt-3">
+              Manage your tasks efficiently with our system.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card card-body blur shadow-blur mx-3 mx-md-4 mt-n6 no-padding">
+      <div class="container-fluid no-padding">
+        <div class="row no-padding">
+          <div class="col-sm-2 no-padding">
+            {% block sidebar %}
+              {% include "includes/sidebar.html" %}
+            {% endblock %}
+          </div>
+          <div class="col-sm-10 no-padding">
+            {% block content %}
+              <!-- Your content here -->
+              {% endblock %}
+              <!-- Pagination -->
+              {% include "includes/pagination.html" %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  {% include "includes/footer.html" %}
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
