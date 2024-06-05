@@ -7,7 +7,7 @@ This project is a comprehensive tool designed to streamline the workflow of a de
 
 
 
-## Features
+# Features
 
 Task Creation: Any team member can create a task, providing a detailed description, due date, and priority level.
 
@@ -26,9 +26,9 @@ Positions: It is possible to create employees by giving them a position. Also, c
 
 
 
-## Getting Started
+# Getting Started
 
-# 1.Prerequisites
+## 1.Prerequisites
 Make sure you have the following installed on your machine:
 
 Python 3.x
@@ -43,7 +43,7 @@ To get started with our Task Manager, create your own fork and run code like thi
 
 
 
-# 2.Installation
+## 2.Installation
 
 Create and activate a virtual environment:
     
@@ -69,7 +69,7 @@ Run the development server:
 
 
 
-## Running the Tests
+# Running the Tests
 
 To run the tests for the project, use the following command:
 
@@ -78,7 +78,7 @@ To run the tests for the project, use the following command:
 
 
 
-## Project Structure
+# Project Structure
 
 The project structure is as follows:
 
@@ -112,14 +112,14 @@ The project structure is as follows:
 
 
 
-## Models Structure
+# Models Structure
 
 ![image](https://github.com/yossosh/IT-Company-Task-Manager/assets/160421955/0df65b64-1af5-47de-ae63-4a470a104739)
 
 
 
 
-## Screenshots
+# Screenshots
 ![image](https://github.com/yossosh/IT-Company-Task-Manager/assets/160421955/055032b2-8861-4232-b623-59df823a010c)
 ![image](https://github.com/yossosh/IT-Company-Task-Manager/assets/160421955/dee2e3f6-699b-45c6-abd5-cc539afdaea0)
 ![image](https://github.com/yossosh/IT-Company-Task-Manager/assets/160421955/d3b2ad38-25e0-48dd-8504-3ef3211791be)
