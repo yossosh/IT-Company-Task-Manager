@@ -28,7 +28,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY", "django-insecure-rgyxtgira7@4d#!(v2wa8
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get("DJANGO_DEBUG", "") != "False"
 
-ALLOWED_HOSTS = ["localhost"]
+ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
 
 
 # Application definition
@@ -88,6 +88,8 @@ DATABASES = {
 
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES["default"].update(db_from_env)
+
+
 
 
 # Password validation
