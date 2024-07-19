@@ -1,0 +1,159 @@
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1 0 auto;
+  position: relative;
+}
+
+.footer {
+  flex-shrink: 0;
+  background: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  padding: 1rem 0;
+}
+
+.bg-gray-200 {
+  background-color: #f8f9fa;
+}
+
+.page-header {
+  position: relative;
+  height: 75vh;
+  min-height: 75vh;
+  background-size: cover;
+  background-position: center;
+  background-image: url('/static/img/bg2.img');
+  margin-bottom: 0;
+}
+
+.header-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.header-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: #fff;
+  padding-top: 100px;
+}
+
+.header-content h1 {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.header-content p {
+  font-size: 1.25rem;
+}
+
+.navbar {
+  margin-bottom: 0;
+}
+
+.navbar-brand, .nav-link {
+  color: #000 !important;
+}
+
+.navbar-nav .nav-item .nav-link {
+  color: #000 !important;
+}
+
+.navbar-light .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%280, 0, 0, 1%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+.mask {
+  background-color: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+}
+
+.card-plain {
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.text-gradient {
+  background: linear-gradient(90deg, #fbc2eb 0%, #a6c1ee 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.bg-gradient-primary {
+  background: linear-gradient(90deg, #00c6ff 0%, #0072ff 100%);
+}
+
+.no-padding {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.pagination {
+  justify-content: center;
+  padding: 1rem 0;
+}
+
+.pagination .page-item .page-link {
+  color: #007bff;
+}
+
+.pagination .page-item.active .page-link {
+  background-color: #007bff;
+  border-color: #007bff;
+  color: #fff;
+}
+
+/* New styles */
+.header {
+  background-image: url('/static/img/bg2.img');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: #fff;
+  padding: 100px 0;
+}
+
+.header .mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.header-content {
+  position: relative;
+  z-index: 2;
+}
+
+.header-content h1 {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.header-content p {
+  font-size: 1.25rem;
+}

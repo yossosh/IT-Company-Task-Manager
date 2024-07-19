@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Worker List <a href="{% url 'manager:worker-create' %}" class="btn btn-primary">+</a></h1>
+  {% if workers %}
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Username</th>
+        <th>Position</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for worker in workers %}
+      <tr>
+        <td><a href="{% url 'manager:worker-detail' worker.id %}">{{ worker.id }}</a></td>
+        <td>{{ worker.username }}</td>
+        <td>{{ worker.position.name }}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+    <p>There are no workers</p>
+  {% endif %}
+{% endblock %}
